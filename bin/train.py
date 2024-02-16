@@ -21,6 +21,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--weights_file", default=None, type=str, help="Path to file that contains pre-trained weights.")
     parser.add_argument("--pretrained_model", default=None, type=str)
+    parser.add_argument("--save_model_path", default=None, type=str)
     parser.add_argument("--freeze_layers", default=0, type=int, help="How many layers should be frozen for the training."
                                                                      "Counts from the beginning.")
     parser.add_argument("--remove_layers",
@@ -36,8 +37,6 @@ if __name__ == "__main__":
     parser.add_argument("--l2", default=0.00001, type=float)
 
     args = parser.parse_args()
-
-    args.save_model_path = None
 
     assert ((args.transformed_img_width is None and args.transformed_img_height is None) or
             args.transformed_img_width is not None and args.transformed_img_height is not None)
